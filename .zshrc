@@ -104,6 +104,14 @@ alias gh='github'
 alias zmig='zeus rake db:migrate --trace && RAILS_ENV=test zeus rake db:migrate'
 alias zrback='zeus rake db:rollback --trace && RAILS_ENV=test zeus rake db:rollback'
 
+function feature {
+  gco develop && gco -b "feature/$1"
+}
+
+function feature {
+  gco develop && gco -b "hotfix/$1"
+}
+
 # SERVE static website
 function serve {
   port="${1:-3000}"
