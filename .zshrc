@@ -113,9 +113,6 @@ function serve {
 # USELESS but fun
 alias animal='curl -s http://animals.ivolo.me/\?index\=$1'
 
-# DOCKER
-export DOCKER_HOST=tcp://127.0.0.1:4243
-
 # ATOM.IO
 ## This changes the default path for new packages created via the generator
 ATOM_REPOS_HOME=/Users/jipiboily/code
