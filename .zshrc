@@ -104,10 +104,6 @@ alias gh='github'
 alias zmig='zeus rake db:migrate --trace && RAILS_ENV=test zeus rake db:migrate'
 alias zrback='zeus rake db:rollback --trace && RAILS_ENV=test zeus rake db:rollback'
 
-
-## UNMOUNT all usual external drives (there is a Alfred workflow for that)
-alias unmount_all="diskutil unmount /Volumes/Donnees & diskutil unmount /Volumes/TM-GE & diskutil unmount /Volumes/Time\ Machine & diskutil unmount /Volumes/TM-SSD & diskutil unmount /Volumes/Mac\ External"
-
 # SERVE static website
 function serve {
   port="${1:-3000}"
