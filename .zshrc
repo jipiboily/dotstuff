@@ -108,7 +108,7 @@ function feature {
   gco develop && gco -b "feature/$1"
 }
 
-function feature {
+function hotfix {
   gco develop && gco -b "hotfix/$1"
 }
 
