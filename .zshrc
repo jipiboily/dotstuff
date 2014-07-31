@@ -48,6 +48,9 @@ export RBENV_ROOT=/usr/local/opt/rbenv
 
 # SHELL ALIASES
 alias ll='ls -al'
+alias l='ll'
+alias p='ps aux | grep -i '
+alias zshrc='atom ~/dotstuff/.zshrc'
 
 # BUNDLER AND RAILS
 alias be='bundle exec'
