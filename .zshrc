@@ -104,7 +104,10 @@ alias gh='github'
 # CUSTOM UTILITIES
 
 ## RAINFOREST
-# alias rf="cd ~/rainforest/rainforest && export $(sed '/^#/d' .env)"
+function rf_export {
+  export $(sed '/^#/d' .env)
+}
+alias rf="cd ~/rainforest/rainforest && rf_export"
 alias zmig='zeus rake db:migrate --trace && RAILS_ENV=test zeus rake db:migrate'
 alias zrback='zeus rake db:rollback --trace && RAILS_ENV=test zeus rake db:rollback'
 
