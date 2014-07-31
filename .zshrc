@@ -1,8 +1,3 @@
-# bindkey -e
-# The following lines were added by compinstall
-# zstyle :compinstall filename '/Users/jipiboily/.zshrc'
-
-
 # ZSH specific stuff
 
 ## HISTORY
