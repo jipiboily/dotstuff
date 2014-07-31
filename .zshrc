@@ -6,6 +6,12 @@
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+## KEYBOARD NAVIGATION
+bindkey "^[[H" beginning-of-line # fn + left
+bindkey "^[[F" end-of-line       # fn + right
+bindkey '[D' backward-word       # alt + left
+bindkey '[C' forward-word        # alt + right
+
 ## COMPLETION
 autoload -Uz compinit
 compinit
