@@ -60,12 +60,15 @@ alias zshrc='atom ~/dotstuff/.zshrc'
 
 # BUNDLER AND RAILS
 alias be='bundle exec'
-alias ber='bundle exec rake'
-alias dbmig='bundle exec rake db:migrate --trace && RAILS_ENV=test bundle exec rake db:migrate'
-alias dbrollback='bundle exec rake db:rollback --trace && RAILS_ENV=test bundle exec rake db:rollback'
+alias ber='be rake'
+alias mig='be rake db:migrate --trace && RAILS_ENV=test be rake db:migrate'
+alias rback='be rake db:rollback --trace && RAILS_ENV=test be rake db:rollback'
 alias b='bundle'
-alias bi='bundle install'
-alias bu='bundle update'
+alias bi='b install'
+alias bu='b update'
+alias gg='be guard'
+
+alias pow='powder restart'
 
 # GIT
 alias gpll='git pull --rebase'
@@ -86,6 +89,7 @@ alias gp='git push'
 alias greset='git reset --hard HEAD'
 alias gclean='git add -A && git reset --hard HEAD'
 alias gstash='git add -A && git stash'
+alias gdf='g diff'
 
 # GIT UTILITIES
 
@@ -108,8 +112,12 @@ function rf_export {
   export $(sed '/^#/d' .env)
 }
 alias rf="cd ~/rainforest/rainforest && rf_export"
-alias zmig='zeus rake db:migrate --trace && RAILS_ENV=test zeus rake db:migrate'
-alias zrback='zeus rake db:rollback --trace && RAILS_ENV=test zeus rake db:rollback'
+alias z='zeus'
+alias zr='z rake'
+alias zmig='zr db:migrate --trace && RAILS_ENV=test zr db:migrate'
+alias zrback='zr db:rollback --trace && RAILS_ENV=test zr db:rollback'
+alias zroutes='zr routes'
+alias zz='be zeus start'
 
 function feature {
   gco develop && gco -b "feature/$1"
