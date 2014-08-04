@@ -139,3 +139,6 @@ alias animal='curl -s http://animals.ivolo.me/\?index\=$1'
 # ATOM.IO
 ## This changes the default path for new packages created via the generator
 ATOM_REPOS_HOME=/Users/jipiboily/code
+
+# Go
+export GOPATH=$HOME/go
