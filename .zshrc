@@ -108,10 +108,9 @@ alias gh='github'
 # CUSTOM UTILITIES
 
 ## RAINFOREST
-function rf_export {
-  export $(sed '/^#/d' .env)
-}
-alias rf="cd ~/rainforest/rainforest && rf_export"
+. ~/dotstuff/zsh/plugins/autoenv.zsh
+
+alias rf="cd ~/rainforest/rainforest"
 alias z='zeus'
 alias zr='z rake'
 alias zmig='zr db:migrate --trace && RAILS_ENV=test zr db:migrate'
