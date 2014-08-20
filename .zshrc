@@ -142,5 +142,9 @@ ATOM_REPOS_HOME=/Users/jipiboily/code
 # Go
 export GOPATH=$HOME/go
 
-# Docker
+# DOCKER
 export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
+
+function dri {
+  docker run -i -t $1 /bin/bash
+}
