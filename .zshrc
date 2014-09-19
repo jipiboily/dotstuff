@@ -111,6 +111,8 @@ alias gh='github'
 . ~/dotstuff/zsh/plugins/autoenv.zsh
 
 alias rf="cd ~/rainforest/rainforest"
+alias blog="cd ~/rainforest/blog"
+alias doc="cd ~/rainforest/docs"
 alias z='zeus'
 alias zr='z rake'
 alias zmig='zr db:migrate --trace && RAILS_ENV=test zr db:migrate'
