@@ -45,9 +45,11 @@ PROMPT='%{$(pwd|grep --color=always /)%${#PWD}G%} $(vcs_info_wrapper)-> '
 # PROMPT='$fg[cyan]%{$(pwd)%${#PWD}G%}$reset_color $(vcs_info_wrapper)-> '
 # RPROMPT=$'$(vcs_info_wrapper)'
 
+# PATH
+export PATH="/usr/local/bin:$PATH:/usr/local/bin"
+
 # RBENV (from Hombrew)
-eval "$(rbenv init -)"
-export RBENV_ROOT=/usr/local/opt/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Source my env vars that I don't want to share
 . ~/.env-vars
@@ -56,9 +58,10 @@ export RBENV_ROOT=/usr/local/opt/rbenv
 alias ll='ls -al'
 alias l='ll'
 alias p='ps aux | grep -i '
-alias zshrc='atom ~/dotstuff/.zshrc'
+alias zshrc='subl ~/dotstuff/.zshrc'
 
 # BUNDLER AND RAILS
+export BUNDLER_EDITOR=subl
 alias be='bundle exec'
 alias ber='be rake'
 alias mig='be rake db:migrate --trace && RAILS_ENV=test be rake db:migrate'
@@ -71,6 +74,7 @@ alias gg='be guard'
 alias pow='powder restart'
 
 # GIT
+alias git='hub'
 alias gpll='git pull --rebase'
 alias gpl=gpll
 
@@ -81,10 +85,11 @@ alias gdiffc='git diff --cached'
 alias gst='git status'
 alias gco='git checkout'
 alias g='git'
-alias ga='git add'
+alias ga='git add -A'
 alias gb='git branch'
 alias gm='git merge'
 alias gca='git commit -a'
+alias gcm='git commit -a -m'
 alias gp='git push'
 alias gcp='git cherry-pick'
 alias greset='git reset --hard HEAD'
@@ -108,10 +113,18 @@ alias gh='github'
 
 # CUSTOM UTILITIES
 
+## METRICS WATCH
+alias mw="cd ~/code/metrics-watch"
+
+## Graffweb
+alias gw="cd ~/code/graffweb"
+
 ## RAINFOREST
 . ~/dotstuff/zsh/plugins/autoenv.zsh
 
 alias rf="cd ~/rainforest/rainforest"
+alias tala="cd ~/rainforest/tala"
+alias spout="cd ~/rainforest/spout"
 alias blog="cd ~/rainforest/blog"
 alias doc="cd ~/rainforest/docs"
 alias z='zeus'
@@ -122,11 +135,24 @@ alias zroutes='zr routes'
 alias zz='be zeus start'
 
 function feature {
-  gco develop && gco -b "feature/$1"
+  develop_exists=`git show-ref refs/heads/develop`
+  if [ -n "$develop_exists" ]; then
+    gco develop
+  else
+  gco master
+  fi
+  gco -b "feature/$1"
 }
 
 function hotfix {
   gco develop && gco -b "hotfix/$1"
+}
+
+# KILL ALL THE THINGS!
+function massacre {
+  # if param is ruby, this is the equivalent
+  # ps ax | grep ruby  | awk '{print $1}' | xargs kill -9
+  ps ax | grep $1  | awk '{print $1}' | xargs kill -9
 }
 
 # SERVE static website
@@ -151,3 +177,6 @@ export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
 function dri {
   docker run -i -t $1 /bin/bash
 }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
