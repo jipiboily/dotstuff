@@ -45,11 +45,17 @@ PROMPT='%{$(pwd|grep --color=always /)%${#PWD}G%} $(vcs_info_wrapper)-> '
 # PROMPT='$fg[cyan]%{$(pwd)%${#PWD}G%}$reset_color $(vcs_info_wrapper)-> '
 # RPROMPT=$'$(vcs_info_wrapper)'
 
-# PATH
-export PATH="/usr/local/bin:$PATH:/usr/local/bin"
-
 # RBENV (from Hombrew)
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# PATH
+export PATH=/usr/local/bin:$PATH:/usr/local/bin
+
+## Use the binstubs (for Ruby projects) if available
+export PATH=./bin:$PATH
+
+## Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 
 # Source my env vars that I don't want to share
 . ~/.env-vars
@@ -178,7 +184,5 @@ function dri {
   docker run -i -t $1 /bin/bash
 }
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 export NVM_DIR="/Users/jipiboily/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
