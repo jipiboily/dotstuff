@@ -151,7 +151,13 @@ function feature {
 }
 
 function hotfix {
-  gco develop && gco -b "hotfix/$1"
+develop_exists=`git show-ref refs/heads/develop`
+  if [ -n "$develop_exists" ]; then
+    gco develop
+  else
+  gco master
+  fi
+  gco -b "hotfix/$1"
 }
 
 # KILL ALL THE THINGS!
