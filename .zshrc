@@ -64,10 +64,10 @@ export PATH="/usr/local/heroku/bin:$PATH"
 alias ll='ls -al'
 alias l='ll'
 alias p='ps aux | grep -i '
-alias zshrc='subl ~/dotstuff/.zshrc'
+alias zshrc='atom ~/dotstuff/.zshrc'
 
 # BUNDLER AND RAILS
-export BUNDLER_EDITOR=subl
+export BUNDLER_EDITOR=atom
 alias be='bundle exec'
 alias ber='be rake'
 alias mig='be rake db:migrate --trace && RAILS_ENV=test be rake db:migrate'
