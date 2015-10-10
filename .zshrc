@@ -185,7 +185,7 @@ export GOPATH=$HOME/go
 export CDPATH=$CDPATH:$GOROOT/src/pkg:$GOPATH/src/code.google.com/p:$GOPATH/src/github.com:$GOPATH/src/git.tech-angels.net
 
 # DOCKER
-export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
+export DOCKER_HOST=tcp://192.168.99.100:2376 DOCKER_CERT_PATH=/Users/jipiboily/.docker/machine/machines/default DOCKER_TLS_VERIFY=1
 
 function dri {
   docker run -i -t $1 /bin/bash
