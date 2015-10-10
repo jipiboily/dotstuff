@@ -182,6 +182,7 @@ ATOM_REPOS_HOME=/Users/jipiboily/code
 
 # Go
 export GOPATH=$HOME/go
+export CDPATH=$CDPATH:$GOROOT/src/pkg:$GOPATH/src/code.google.com/p:$GOPATH/src/github.com:$GOPATH/src/git.tech-angels.net
 
 # DOCKER
 export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
