@@ -21,7 +21,6 @@ compinit
 ### Load color helpers
 autoload -U colors && colors
 
-
 ## PROMPT
 # Source for the VCS stuff: http://stackoverflow.com/a/1128583/398289
 setopt prompt_subst
@@ -105,41 +104,20 @@ alias gdf='g diff'
 
 # GIT UTILITIES
 
-## Git clean: Delete all local branches that have been merged
-
-# This gitclean is commented as errororing when booting a shell...this is annoying
-# alias gitclean="if [ 'master' = `git branch | grep '^* ' | sed -e 's/^[*] //'` ] ; then git branch --merged | grep -v "\*" | xargs git branch -d ; fi"
-#
-# function gitclean-remote {
-#   for x in `git branch -r --merged | grep origin | grep -v '>' | grep -v master  | xargs -L1 | awk '{split($0,a,"/"); print a[2]}'` ; do git push origin :$x ; done
-# }
-
 ## GitHub for mac
 alias gh='github'
 
 # CUSTOM UTILITIES
 
-## METRICS WATCH
+## Shortcut to projets
 alias mw="cd ~/code/metrics-watch"
-
-## Graffweb
+alias mws="cd ~/code/metricswatch.com-2019"
+alias mwcom="cd ~/code/metricswatch.com-2018"
 alias gw="cd ~/code/graffweb"
+alias clms="cd ~/code/clms-pro"
 
-## RAINFOREST
-. ~/dotstuff/zsh/plugins/autoenv.zsh
 
-alias rf="cd ~/rainforest/rainforest"
-alias tala="cd ~/rainforest/tala"
-alias spout="cd ~/rainforest/spout"
-alias blog="cd ~/rainforest/blog"
-alias doc="cd ~/rainforest/docs"
-alias z='zeus'
-alias zr='z rake'
-alias zmig='zr db:migrate --trace && RAILS_ENV=test zr db:migrate'
-alias zrback='zr db:rollback --trace && RAILS_ENV=test zr db:rollback'
-alias zroutes='zr routes'
-alias zz='be zeus start'
-
+## Git branch helpers
 function feature {
   develop_exists=`git show-ref refs/heads/develop`
   if [ -n "$develop_exists" ]; then
@@ -183,9 +161,10 @@ ATOM_REPOS_HOME=/Users/jipiboily/code
 # Go
 export GOPATH=$HOME/go
 export CDPATH=$CDPATH:$GOROOT/src/pkg:$GOPATH/src/code.google.com/p:$GOPATH/src/github.com:$GOPATH/src/git.tech-angels.net
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # DOCKER
-export DOCKER_HOST=tcp://192.168.99.100:2376 DOCKER_CERT_PATH=/Users/jipiboily/.docker/machine/machines/default DOCKER_TLS_VERIFY=1
+# export DOCKER_HOST=tcp://192.168.99.100:2376 DOCKER_CERT_PATH=/Users/jipiboily/.docker/machine/machines/default DOCKER_TLS_VERIFY=1
 
 function dri {
   docker run -i -t $1 /bin/bash
@@ -193,3 +172,11 @@ function dri {
 
 export NVM_DIR="/Users/jipiboily/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
+# Charts & Stuff
+BROWSER_PATH=/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
